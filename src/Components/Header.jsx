@@ -10,13 +10,13 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
-import { useSelector } from "react-redux";
-import { fetchProducts } from "./adminComponents/store/productslice";
+// import { useSelector } from "react-redux";
+// import { fetchProducts } from "./adminComponents/store/productslice";
 
 function Header() {
-  const items = useSelector((state) => state.cart);
-  console.log("Cart items");
-  console.log(items);
+  // const items = useSelector((state) => state.cart);
+  // console.log("Cart items");
+  // console.log(items);
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -62,7 +62,7 @@ function Header() {
                   icon={faCartArrowDown}
                   style={{ paddingRight: "5px", paddingtop: "10px" }}
                 />{" "}
-                <Badge bg="secondary">{items.length}</Badge>
+                <Badge bg="secondary">Length</Badge>
                 <span className="visually-hidden">unread messages</span>
               </Button>
               <span className="" style={{ paddingLeft: "5px" }}></span>

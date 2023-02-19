@@ -4,7 +4,7 @@ import myImage from "../../src/images/f1.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import UserSidebar from './UserSidebar'
+// import UserSidebar from './UserSidebar'
 
 function MyWishlist() {
   return (

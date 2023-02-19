@@ -10,18 +10,18 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
-import UserDashboard from "./components/UserDashboard";
-import OrderStatus from "./components/OrderStatus";
-import OrderHistory from "./components/OrderHistory";
+import UserDashboard from "./userComponents/UserDashboard";
+import OrderStatus from "./userComponents/OrderStatus";
+import OrderHistory from "./userComponents/OrderHistory";
 import MyWishlist from "./components/MyWishlist";
-import ChangePassword from "./components/ChangePassword";
-import Logout from "./components/Logout";
-import AdminDashboard from "./components/adminComponents/AdminDashboard";
-import Users from "./components/adminComponents/Users";
-import AddProduct from "./components/adminComponents/AddProduct";
-import ViewProducts from "./components/adminComponents/ViewProducts";
-import ActiveOrders from "./components/adminComponents/ActiveOrders";
-import AdminSidebar from "./components/adminComponents/AdminSidebar";
+import ChangePassword from "./userComponents/ChangePassword";
+import AdminDashboard from "./adminComponents/AdminDashboard";
+import Users from "./adminComponents/Users";
+import AddProduct from "./adminComponents/AddProduct";
+import ViewProducts from "./adminComponents/ViewProducts";
+import ActiveOrders from "./adminComponents/ActiveOrders";
+import AdminSidebar from "./adminComponents/AdminSidebar";
+import WhislistHistory from "./userComponents/WhislistHistory";
 
 function App() {
   return (
@@ -40,8 +40,8 @@ function App() {
         <Route path="/user/userDashboard" element={<UserDashboard />} />
         <Route path="/user/orderStatus" element={<OrderStatus />} />
         <Route path="/user/orderHistory" element={<OrderHistory />} />
+        <Route path="/user/whishlistHistory" element={<WhislistHistory />} />
         <Route path="/user/changePassword" element={<ChangePassword />} />
-        <Route path="/user/logout" element={<Logout />} />
 
         <Route path="/admin/adminSidebar" element={<AdminSidebar />} />
         <Route path="/admin/adminDashboard" element={<AdminDashboard />} />
