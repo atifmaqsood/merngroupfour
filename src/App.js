@@ -1,5 +1,4 @@
 import "./App.css";
-import { Header } from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import "../src/style.css";
@@ -31,16 +30,18 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/userDashboard" element={<UserDashboard />} />
-        <Route path="/orderStatus" element={<OrderStatus />} />
-        <Route path="/orderHistory" element={<OrderHistory />} />
         <Route path="/myWishlist" element={<MyWishlist />} />
-        <Route path="/changePassword" element={<ChangePassword />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+
+
+        <Route path="/user/userDashboard" element={<UserDashboard />} />
+        <Route path="/user/orderStatus" element={<OrderStatus />} />
+        <Route path="/user/orderHistory" element={<OrderHistory />} />
+        <Route path="/user/changePassword" element={<ChangePassword />} />
+        <Route path="/user/logout" element={<Logout />} />
 
         <Route path="/admin/adminSidebar" element={<AdminSidebar />} />
         <Route path="/admin/adminDashboard" element={<AdminDashboard />} />
