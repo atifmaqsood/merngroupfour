@@ -15,7 +15,7 @@ function MyWishlist() {
 
        <Row>
         <Col  md={2} className="bg-light px-4 py-4">
-          <UserSidebar/>
+          {/* <UserSidebar/> */}
         </Col>
         <Col md={10}>
           
