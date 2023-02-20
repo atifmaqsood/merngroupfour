@@ -69,7 +69,7 @@ function Header() {
 
               <Button
                 as={Link}
-                to="/userDashboard"
+                to="/user/userDashboard"
                 className="btn btn-primary btn-lg"
               >
                 <FontAwesomeIcon icon={faUser} />
