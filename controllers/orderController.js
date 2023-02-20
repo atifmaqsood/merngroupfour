@@ -37,30 +37,44 @@ const deleteOrder = async (req, res) => {
   }
 };
 
+// const getSingleUserOrder = async (req, res) => {
+  
+//     const userId = Order.user.userID;
+//     const orders = await Order.find({
+//       userId : req.params.id 
+  
+//     });
+
+//     res.status(200).json({ message: "got", orders });
+
+// };
+
+// const getSingleUserOrder = async (req, res) => {
+//   const userId = req.params.id;
+
+//   try {
+//     const orders = await Order.find({ 'user.userId': userId });
+
+//     res.status(200).json({ message: 'Got user orders', orders });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Error getting user orders' });
+//   }
+// };
+
 const getSingleUserOrder = async (req, res) => {
+  const userId = req.params.id;
+
   try {
-    // const myOrders = new Order();
-    // const userid = myOrders.user.userID.toString();
-    // console.log(userid);
+    const orders = await Order.find({ 'user.userID': userId });
 
-    const orders = await Order.find({
-      userID: req.params.userID
-    }).toArray((err, orders) => {
-      console.log(orders);
-    });
-    //   if(!orders){
-    //    console.log(orders)
-    //   res.status(400).json({ message : "not found" , orders})
-    // }
-
-    // if(orders.user.userID.toString() !== req.params.id ){
-    //    res.status(400).json({ message : "not ALLOWED" , orders})
-    //   }
-    res.status(400).json({ message: "got", orders });
-  } catch (err) {
-    res.status(500).json( { message : "not got", err});
+    res.status(200).json({ message: 'Got user orders', orders });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error getting user orders' });
   }
 };
+
 
 const getAllUserOrders = async(req, res)=>{
 

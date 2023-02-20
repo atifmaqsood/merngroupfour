@@ -4,11 +4,13 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const userController = require("../controllers/userController");
 const { check, validationResult } = require("express-validator");
+const fileUpload = require("../middleware/fileUpload")
 
 // REGISTER
 
 router.post(
   "/register",
+  fileUpload.single('image'),
   [
     check("username")
       .not()
@@ -21,6 +23,7 @@ router.post(
       .isLength({ min: 5 })
       .withMessage("Password must be of 5 characters"),
   ],
+  
   userController.userRegister
 );
 
