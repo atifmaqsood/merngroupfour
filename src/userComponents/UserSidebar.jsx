@@ -1,6 +1,10 @@
-import React from 'react'
-
+import React, { useState } from "react";
+import { Col, Container, Navbar, Nav, Row } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 function UserSidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+ 
   return (
     <div>
       <>
@@ -12,37 +16,37 @@ function UserSidebar() {
         <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? "show" : ""}>
           <Nav className="flex-column">
             <Nav.Item >
-              <Nav.Link  className={`${location.pathname==="/userDashboard"?'navActive' : "" }`} as={Link} to="/userDashboard">
+              <Nav.Link  className={`${location.pathname==="/user/userDashboard"?'navActive' : "" }`} as={Link} to="/user/userDashboard">
                 Dashboard
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} className={`${location.pathname==="/orderStatus"?'navActive' : "" }`} to="/orderStatus">
+              <Nav.Link as={Link} className={`${location.pathname==="/user/orderStatus"?'navActive' : "" }`} to="/user/orderStatus">
                 Order Status
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} className={`${location.pathname==="/orderHistory"?'navActive' : "" }`} to="/orderHistory">
+              <Nav.Link as={Link} className={`${location.pathname==="/user/orderHistory"?'navActive' : "" }`} to="/user/orderHistory">
                 Order History
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} className={`${location.pathname==="/myWishlist"?'navActive' : "" }`} to="/myWishlist">
+              <Nav.Link as={Link} className={`${location.pathname==="/user/whishlistHistory"?'navActive' : "" }`} to="/user/whishlistHistory">
                 {" "}
                 My Wishlist{" "}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} className={`${location.pathname==="/changePassword"?'navActive' : "" }`} to="/changePassword">
+              <Nav.Link as={Link} className={`${location.pathname==="/user/changePassword"?'navActive' : "" }`} to="/user/changePassword">
                 {" "}
                 Change Password{" "}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} className={`${location.pathname==='/logout'?'navActive' : "" }`} to="/logout">
+              <Nav.Link as={Link} className={`${location.pathname==='/user/logout'?'navActive' : "" }`} to="/user/logout">
                 {" "}
                 Logout{" "}
               </Nav.Link>

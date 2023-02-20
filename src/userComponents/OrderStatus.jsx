@@ -1,4 +1,11 @@
 import React from 'react'
+import { Button, Col, Container, Row, Table,Form,InputGroup} from "react-bootstrap";
+import myImage from "../../src/images/f1.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+ import UserSidebar from './UserSidebar'
+ 
 
 function OrderStatus() {
   return (

@@ -1,4 +1,9 @@
-import React from 'react'
+import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import myImage from "../../src/images/f1.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+ import UserSidebar from './UserSidebar'
 
 function OrderHistory() {
   return (
