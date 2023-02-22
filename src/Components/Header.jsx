@@ -39,9 +39,17 @@ function Header() {
               </Nav.Link>
             </Nav>
             <Form className="d-flex">
+            <Button
+                as={Link}
+                to="/admin/adminDashboard"
+                className="btn btn-primary btn-lg"
+              >
+                <FontAwesomeIcon icon={faUser} />
+              </Button>
               <Button
                 as={Link}
-                to="/myWhishlist"
+                to="/myWishlist"
+                className="mx-2"
                 variant="primary"
                 style={{ paddingRight: "5px" }}
               >
