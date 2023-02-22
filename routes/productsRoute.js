@@ -7,25 +7,12 @@ const {
   verifyTokenAndAdmin,
 } = require("../middleware/verifyToken");
 const Product = require("../models/productModel");
-
+const fileUpload = require("../middleware/fileUpload")
 const router = require("express").Router();
 
 // CREATE PRODUCT
 
-router.post("/", verifyTokenAndAdmin,[
-  check("title")
-    .not()
-    .isEmpty()
-    .withMessage("Please enter title").isLength({min:4}).withMessage("Title must be at least 5 characters long"),
-  check('desc')
-    .not()
-    .isEmpty()
-    .withMessage("Please enter description")
-    .isLength({min: 5})
-    .withMessage("Description must be at least 5 characters long"),
-    check('price').not().isEmpty(),
-    
-] ,productController.createProduct);
+router.post("/addProduct",fileUpload.single('image'), verifyTokenAndAdmin ,productController.createProduct);
 
 // UPDATE Product
 

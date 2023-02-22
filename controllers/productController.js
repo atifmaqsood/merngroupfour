@@ -6,19 +6,30 @@ const { check, validationResult } = require("express-validator");
 
 const createProduct = async (req, res) => {
 
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   return res.status(400).json({ errors: errors.array() });
+  // }
+console.log(req.body.title)
+  const newProduct = new Product({
+    title: req.body.title,
+    desc: req.body.desc,
+    categories: req.body.categories,
+    rating: req.body.rating,
+    popularity: req.body.popularity,
+    price: req.body.price,
+    img: req.file ? req.file.path : null
+    
+  });
 
-  const newProduct = new Product(req.body);
-
+  
   try {
     const savedProduct = await newProduct.save();
     res.status(200).json(savedProduct);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ error: err.message });
   }
+  
 };
 
 const updateProduct = async (req, res) => {
