@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-function Cartitems() {
+function Cartitems({product}) {
+  console.log("first",product)
   return (
     <>
       <Table striped bordered hover>
@@ -14,7 +15,7 @@ function Cartitems() {
             <td>
               <img style={{ height: "50px", width: "50px" }} src={myImage} />
             </td>
-            <td>Pizza</td>
+            <td>{product._id}</td>
             <td>Rs900</td>
             <td>
               <Button variant="danger">-</Button> {" 3 "}

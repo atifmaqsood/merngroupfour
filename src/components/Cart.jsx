@@ -6,8 +6,14 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import Cartitems from "./Cartitems";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Cart() {
+
+  const cartProducts = useSelector((state)=>state.cart.cart)
+
+  console.log("cart products are : ", cartProducts);
+
   return (
     <>
       <h1 className="text-center">Cart</h1>
@@ -15,9 +21,16 @@ function Cart() {
       <Container fluid className="my-5">
         <Row>
           <Col md={9} sm={12}>
+            {cartProducts && cartProducts.products && cartProducts.products.length > 0 ? 
             <Container>
-             <Cartitems/>
+            {cartProducts.products.map((product) => (
+             <Cartitems product={product} />
+             ))}
             </Container>
+
+            :null
+          }
+            
           </Col>
           <Col md={3} sm={12}>
             
