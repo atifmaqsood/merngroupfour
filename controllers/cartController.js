@@ -2,8 +2,40 @@ const express = require("express");
 const app = express();
 const Cart = require("../models/cartModel");
 
+
+// const createCart = async (req, res) => {
+//   const newCart = new Cart(req.body);
+
+//   try {
+//     const savedCart = await newCart.save();
+//     res.status(200).json(savedCart);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// };
+
+
 const createCart = async (req, res) => {
-  const newCart = new Cart(req.body);
+  const {  productID, quantity } = req.body;
+  const user = req.body.user;
+  JSON.parse
+  console.log("our user" , user)
+  // const {  userID, username, email } = {user};
+  const userID = user['_id']
+  const username = user['username']
+  const email = user['email']
+  console.log(userID)
+  console.log(username)
+  console.log(email)
+  // console.log(userID, username, email)
+  const newCart = new Cart({
+    user: {
+      userID,
+      username,
+      email
+    },
+    products: [{ productID, quantity }]
+  });
 
   try {
     const savedCart = await newCart.save();
@@ -12,6 +44,8 @@ const createCart = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+
 
 const updateCart = async (req, res) => {
   try {
@@ -40,7 +74,7 @@ const getSingleUserCart = async (req, res) => {
     const cart = await Cart.findOne({
       userID: req.params.userID,
     });
-
+    console.log(cart)
     res.status(200).json(cart);
   } catch (err) {
     res.status(500).json(err);

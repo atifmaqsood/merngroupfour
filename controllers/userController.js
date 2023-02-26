@@ -55,10 +55,13 @@ const userRegister = async (req, res) => {
 
 
 const userLogin = async (req, res) => {
+
+
   try {
     const user = await User.findOne({ username: req.body.username });
-
+     console.log("my user : " + user)
     if (!user) {
+      console.log("returning response 64")
       return res.status(401).json("Wrong Credentials");
     }
 
@@ -70,6 +73,7 @@ const userLogin = async (req, res) => {
     const Originalpassword = hashpassword.toString(CryptoJS.enc.Utf8);
 
     if (Originalpassword !== req.body.password) {
+      console.log("returning response 75")
       return res.status(401).json("Wrong Credentials");
     }
 

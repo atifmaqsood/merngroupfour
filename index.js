@@ -10,11 +10,21 @@ const productRouter = require('./routes/productsRoute')
 const cartRouter = require('./routes/cartRoute')
 const orderRouter = require('./routes/orderRoute')
 const path = require('path');
+const bodyParser = require('body-parser');
 
 dotenv.config()
 
-mongoose.connect(process.env.MONGO_URL).then(console.log("DB Connected")).catch((err)=>{console.log(err)})
+// mongoose.connect(process.env.MONGO_URL).then(console.log("DB Connected")).catch((err)=>{console.log(err)})
 
+mongoose.connect(process.env.MONGO_URL, function(err, db) {
+   if(err){
+    console.log(err);
+   }
+   else{
+    console.log("MY DB CONNECTED")
+   }
+})
+app.use(bodyParser.json());
 app.use(express.json())
 
 
