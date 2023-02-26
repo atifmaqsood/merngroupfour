@@ -5,12 +5,14 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/authSlice";
+import {  useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [file, setFile] = useState();
+  const navigate = useNavigate()
 
 
   const dispatch = useDispatch();
@@ -35,6 +37,7 @@ const handleSubmit = (event) => {
   formData.append("password", password);
   formData.append("image", file);
   dispatch(registerUser(formData));
+  navigate("/")
 
 };
 
@@ -91,7 +94,7 @@ const handleSubmit = (event) => {
               />
             </div>
             <Button variant="primary" type="submit">
-              Login
+              Signup
             </Button>
 
           </Form>
